@@ -1,0 +1,36 @@
+.container{
+  margin: 0 auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.example-card {
+  width: 400px;
+  height: auto;
+  margin-top: 5px;
+  margin-left: 5px;
+  background-color: white;
+}
+
+.image{
+  max-width: 300px;
+  height: 200px;
+}
+.card-btn{
+  margin-top: auto;
+}
+
+.counter{
+  padding: 10px 5px 0 5px;
+}
+
+.card__total{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 10px;
+  padding-bottom: 0;
+  background-color: #69f0ae;
+  border-radius: 5px;
+}

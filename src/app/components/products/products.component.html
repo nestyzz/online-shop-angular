@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<div class="container">
+
+<mat-form-field class="example-form-field">
+  <mat-label>Поиск</mat-label>
+  <input class="search_input" matInput type="search" name="search" placeholder="Поиск..."
+  [(ngModel)]="searchValue" (input)="SearchFunc(searchValue)">
+</mat-form-field>
+
+<button mat-button color="basic" [matMenuTriggerFor]="sorting" class="btn-outline sort_btn">Сортировка по</button>
+<mat-menu #sorting="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="alphabet">По алфавиту</button>
+  <button mat-menu-item [matMenuTriggerFor]="price">По цене</button>
+  <button mat-menu-item [matMenuTriggerFor]="category">По категории</button>
+
+</mat-menu>
+
+<mat-menu #alphabet="matMenu">
+  <button class="toolbar button" mat-menu-item color="basic" (click)="SortBy('title')">По алфавиту (A-Z)</button>
+  <button class="toolbar button" mat-menu-item (click)="SortByIncrease('title')">По алфавиту (Z-A)</button>
+</mat-menu>
+
+<mat-menu #price="matMenu">
+  <button class="toolbar button" mat-menu-item (click)="SortBy('price')">По цене min</button>
+  <button class="toolbar button" mat-menu-item (click)="SortByIncrease('price')">По цене max</button>
+</mat-menu>
+
+<mat-menu #category="matMenu">
+  <button mat-menu-item (click)="SortByDefault()">По умолчанию</button>
+  <button mat-menu-item (click)="SortByCategory('men')">Мужская одежда</button>
+  <button mat-menu-item (click)="SortByCategory('jewelery')">Ювелирные украшения</button>
+  <button mat-menu-item (click)="SortByCategory('electronics')">Электроника</button>
+  <button mat-menu-item (click)="SortByCategory('women')">Женская одежда</button>
+</mat-menu>
+
+
+</div>
+
+<div class="container">
+  <mat-card class="example-card" *ngFor="let product of filteredProducts | sorting_increase: sortingIncreaseColumn | sorting:sortingColumn ">
+    <mat-card-header>
+      <mat-card-title>{{product.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image class="image" src="{{product.image}}" alt="img">
+      <p>Цена: {{product.price}}$</p>
+      <p>Категория: {{product.category}}</p>
+    </mat-card-content>
+    <mat-card-actions class="card-btn">
+      <button class="button" mat-flat-button color="accent" (click)="addToBasket(product)" type="button">В корзину</button>
+      <button class="button btn-outline" mat-flat-button color="basic" [routerLink]="['/products', product.id]">Подробнее о товаре</button>
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="addToFavourites(product)">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

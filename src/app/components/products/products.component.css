@@ -1,0 +1,42 @@
+.container{
+  margin: 0 auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.example-card {
+  width: 400px;
+  height: auto;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 15px;
+  background-color: white;
+}
+.button{
+  margin-right: 5px;
+}
+.btn-outline{
+  outline: 0.5px solid rgb(93, 92, 92);
+}
+.image{
+  max-width: 300px;
+  height: 200px;
+}
+.card-btn{
+  margin-top: auto;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.sort_btn{
+  margin-left: 10px;
+}
+.example-form-field {
+  margin-top: 10px;
+  width: 800px;
+  height: 70px;
+}
+
+

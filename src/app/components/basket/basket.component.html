@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<div class="container">
+  <mat-card class="example-card" *ngFor="let item of basket">
+    <mat-card-header>
+      <mat-card-title>{{item.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image class="image" src="{{item.image}}" alt="img">
+      <p>Цена: {{item.price*item.quantity}}$</p>
+      <p>Описание: {{item.description}}</p>
+    </mat-card-content>
+    <mat-card-actions class="card-btn">
+      <button class="button" mat-flat-button color="accent" (click)="minusItemFromBasket(item)">-</button>
+      <p class="counter">Количество: {{item.quantity}}</p>
+      <button class="button" mat-flat-button color="accent" (click)="plusItemToBasket(item)">+</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="container">
+  <div class="card__total" style="margin-right: 15px;">
+    <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 700;">ИТОГОВАЯ СУММА:</p>
+    <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 700;">
+      {{totalSum()}}$
+    </p>
+  </div>
+
+<div class="card__total">
+    <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 700;">ИТОГОВОЕ КОЛИЧЕСТВО ТОВАРОВ:</p>
+    <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 700;">
+      {{totalQuantity()}}шт
+    </p>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,25 @@
+.container{
+  margin: 0 auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.example-card {
+  width: 400px;
+  height: 400px;
+  margin-top: 5px;
+  margin-left: 5px;
+  background-color: white;
+}
+.button{
+  margin-right: 5px;
+}
+.image{
+  max-width: 300px;
+  height: 200px;
+}
+.card-btn{
+  margin-top: auto;
+}
+
